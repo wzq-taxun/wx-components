@@ -1,0 +1,26 @@
+<wxs module="utils" src="./utils.wxs" />
+
+<scroll-view class="tree" scroll-y style="max-height: {{ maxHeight }}">
+  <view 
+    wx:for="{{ renderList }}" 
+    wx:key="id" 
+    class="tree-item {{ innerCheckeds[item.id] ? 'selected': '' }}" 
+    data-index="{{ index }}"
+    data-is-collapse="{{ utils.isCollapse(renderList, index) }}"
+    bind:tap="updateChildren"
+  >
+    <view class="item__content" style="padding-left: {{ utils.getIndentationValue(item) }}rpx">
+      <view 
+        wx:if="{{ utils.hasChildren(idChildrenMapping, item) }}" 
+        class="icon-collapse iconfont-ws {{ utils.isCollapse(renderList, index) ? 'icon-ws-term_right': 'icon-ws-global_down' }}" 
+      />
+      <view wx:else class="icon-collapse-placeholder" />
+      <block wx:if="{{ item.level > 0 }}">
+        <view wx:if="{{ item.level === 1 }}" class="icon-mark iconfont-ws icon-ws-latform-level-1" />
+        <view wx:else class="icon-mark level-2 iconfont-ws icon-ws-latform-level-2" />
+      </block>
+      <view class="label label-{{ item.level }}">{{ item.label }}</view>
+    </view>
+    <checkbox checked="{{ innerCheckeds[item.id] }}" data-index="{{ index }}" data-id="{{ item.id }}" catch:tap="onChange" />
+  </view>
+</scroll-view>

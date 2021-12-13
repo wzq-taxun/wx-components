@@ -1,0 +1,36 @@
+function getIndentationValue(item) {
+  var level = item.level || 0
+
+  if (level <= 1) {
+    return 0
+  }
+
+  // rpx
+  return (level - 1) * 48
+}
+
+function hasChildren(idChildrenMapping, current) {
+  var children = idChildrenMapping[current.id]
+
+  return children && children.length
+}
+
+/**
+ * 判断节点是否是折叠状态
+ */
+function isCollapse(renderList, currentIndex) {
+  var current = renderList[currentIndex]
+  var next = renderList[currentIndex + 1]
+
+  if (next && (next.parentId === current.id)) {
+    return false
+  }
+
+  return true
+}
+
+module.exports = {
+  getIndentationValue: getIndentationValue,
+  hasChildren: hasChildren,
+  isCollapse: isCollapse
+}

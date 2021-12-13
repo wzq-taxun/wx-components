@@ -1,0 +1,27 @@
+.wrapper {
+  width: 44rpx;
+  height: 44rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wrapper .round {
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+  border: 1px solid #CFD2D9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wrapper .round.checked {
+  border-color: var(--text-base-color-1);
+  background-color: var(--text-base-color-1);
+}
+
+.wrapper .round .icon-check {
+  font-size: 36rpx;
+  color: #fff;
+}

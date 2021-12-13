@@ -1,0 +1,69 @@
+@keyframes fadeIn {
+  from {
+    opacity: 0.5;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.tree .tree-item {
+  box-sizing: border-box;
+  padding: 26rpx 32rpx 26rpx 16rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1rpx solid #EEEEEE;
+  animation: fadeIn 0.25s;
+}
+
+.tree .tree-item.selected {
+  background-color: rgba(var(--auxiliary-color-main_RGB), 0.12);
+}
+
+.tree .tree-item:last-child {
+  border-bottom: none;
+}
+
+.tree .tree-item .item__content {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.tree .tree-item .item__content .icon-collapse {
+  font-size: 48rpx;
+  color: #CFD2D9;
+}
+
+.tree .tree-item .item__content .icon-collapse-placeholder {
+  width: 48rpx;
+  height: 48rpx;
+}
+
+.tree .tree-item .item__content .icon-mark {
+  font-size: 40rpx;
+  color: var(--text-base-color-1);
+}
+
+.tree .tree-item .item__content .icon-mark.level-2 {
+  opacity: 0.2;
+}
+
+.tree .tree-item .item__content .label {
+  font-size: 28rpx;
+  line-height: 40rpx;
+  color: #383838;
+  margin-left: 8rpx;
+}
+
+.tree .tree-item .item__content .label.label-0 {
+  font-weight: 500;
+  color: #000;
+  font-size: 32rpx;
+  line-height: 44rpx;
+}
+
+.tree .tree-item .item__content .label.label-1 {
+  font-weight: 500;
+}

@@ -1,0 +1,5 @@
+<view class="wrapper">
+  <view class="round {{ checked ? 'checked' : '' }}">
+    <view wx:if="{{ checked }}" class="icon-check iconfont-ws icon-ws-hook" />
+  </view>
+</view>
